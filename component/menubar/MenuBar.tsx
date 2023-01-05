@@ -12,11 +12,19 @@ const MenuBar = (props: NavbarProps) => {
     <div className={classNameContainer ? classNameContainer : style.container}>
       <div className={classNameContent ? classNameContent : style.menu}>
         <Image src={logo ? logo : ''} width={128} height={65} alt="" />
-        <div className={style.menu_content}>
+        <div
+          className={`${
+            isCollapse
+              ? [style.menu_content, style.open].join(' ')
+              : style.menu_content
+          }`}
+        >
           {paths.map((path, index) => {
             return (
               <div key={index}>
-                <li>{path.name}</li>
+                <li className={isCollapse ? style.menuItem : ''}>
+                  {path.name}
+                </li>
               </div>
             )
           })}
