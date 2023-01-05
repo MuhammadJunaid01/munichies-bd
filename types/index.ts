@@ -15,3 +15,22 @@ export type NavbarProps = {
 export type MainLayouteType = {
   children: ReactNode
 }
+
+export type HeroBannerProps = {
+  title: string
+  info: string
+  img: StaticImageData | string
+  bgColor?: string
+  input: JSX.Element
+  color?: string
+  marginTop?: number
+}
+
+export type InputProps = {
+  type: string
+  placeHolder?: string
+  button?: JSX.Element
+  width?: number
+  radius?: number
+  bg?: string
+}
