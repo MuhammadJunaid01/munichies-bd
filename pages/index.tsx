@@ -1,17 +1,8 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-import { Inter } from "@next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-import { toggleMode } from "../redux/slices/toggleModeSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "../redux/app/index";
-import MainLayoute from "../layoutes/MainLayoute";
-import HeroBanner from "../component/heroBanner/HeroBanner";
+import HeroBanner from '../component/heroBanner/HeroBanner'
+import MainLayoute from '../layoutes/MainLayoute'
 export default function Home() {
-  const dispatch = useDispatch();
-  const { mode } = useSelector((state: RootStore) => state.toggleMode);
-  console.log("hello mode from home js", mode);
   return (
     <>
       <Head>
@@ -26,5 +17,5 @@ export default function Home() {
         </MainLayoute>
       </main>
     </>
-  );
+  )
 }
