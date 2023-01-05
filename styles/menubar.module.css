@@ -11,35 +11,30 @@
   justify-content: space-between;
   position: relative;
 }
-.navbar_menu {
+.menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  flex-wrap: wrap;
 }
-.navbar_btn_box {
+.menu_content {
+  display: flex;
+  flex-basis: 40%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.icon_box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 7px;
 }
-.switch_lng {
-  width: 60px;
-  padding: 1px 0px;
-  margin-left: 10px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-around;
+.collapse_icon {
+  display: none;
 }
-.switch_lng_btn {
-  background-color: transparent;
-  border: none;
-
-  color: white;
-
-  cursor: pointer;
-}
-.collaspe_navbar_icon {
+.toggleIcon {
   cursor: pointer;
   display: none;
 }
@@ -47,26 +42,21 @@
     transform: translateX(0%);
   } */
 @media screen and (max-width: 748px) {
-  .navbar_content {
-    /* flex-direction: column; */
-    justify-content: space-between;
+  .menu {
+    display: flex;
   }
-  .navbar_menu {
-    display: block;
-    transform: translateY(-160%);
-    transform-origin: top;
-    transition: transform 800ms ease-in-out;
-  }
-  .navbar_menu.open {
+  .menu.open {
     margin-top: 30px;
     transform: translateX(0%);
     flex-direction: column;
   }
-  .collaspe_navbar_icon {
+  .menu_content {
+    display: none;
+  }
+  .collapse_icon {
     display: block;
   }
-  .navbar_btn_box {
-    gap: 9px;
-    flex-direction: column;
+  .menu_icon {
+    display: none;
   }
 }

@@ -105,5 +105,51 @@ a {
     color-scheme: dark;
   }
 } */
+/* @import url(//db.onlinewebfonts.com/c/040a78b437acd0433612f92e61d04a1b?family=Gilroy-Medium) */
+@import url(//db.onlinewebfonts.com/c/040a78b437acd0433612f92e61d04a1b?family=Gilroy-Medium);
 :root {
 }
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: "Gilroy-Medium";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+.dark {
+  background-color: #0c1712;
+  color: #ffffff;
+}
+.light {
+  background-color: #f7f8fa;
+  color: #000000;
+}
+/* @font-face {
+  font-family: "Gilroy-Medium";
+  src: url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.eot");
+  src: url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.svg#Gilroy-Medium")
+      format("svg");
+} */

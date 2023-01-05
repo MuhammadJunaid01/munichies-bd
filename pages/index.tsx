@@ -21,10 +21,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>hello</h1>
-        <button onClick={() => dispatch(toggleMode("dark"))}>
-          Mode Toggle
-        </button>
         <MainLayoute>
           <HeroBanner />
         </MainLayoute>
