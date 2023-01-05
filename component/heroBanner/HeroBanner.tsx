@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const HeroBanner = () => {
   return (
@@ -9,7 +9,7 @@ const HeroBanner = () => {
         nemo!
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default HeroBanner;
+export default HeroBanner

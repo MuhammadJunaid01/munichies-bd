@@ -1,7 +1,7 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-import HeroBanner from "../component/heroBanner/HeroBanner";
-import MainLayoute from "../layoutes/MainLayoute";
+import HeroBanner from '../component/heroBanner/HeroBanner'
+import MainLayoute from '../layoutes/MainLayoute'
 export default function Home() {
   return (
     <>
@@ -17,5 +17,5 @@ export default function Home() {
         </MainLayoute>
       </main>
     </>
-  );
+  )
 }
