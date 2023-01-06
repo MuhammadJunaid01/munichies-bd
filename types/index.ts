@@ -1,5 +1,5 @@
 import { StaticImageData } from 'next/image'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 export type NavbarProps = {
   paths: { name: string; to: string }[]
@@ -15,7 +15,9 @@ export type NavbarProps = {
 export type MainLayouteType = {
   children: ReactNode
 }
-
+// export type HomeProps = {
+//   children: ReactNode
+// }
 export type HeroBannerProps = {
   title: string
   info: string
@@ -24,13 +26,23 @@ export type HeroBannerProps = {
   input: JSX.Element
   color?: string
   marginTop?: number
+  button?: JSX.Element
 }
 
 export type InputProps = {
   type: string
   placeHolder?: string
-  button?: JSX.Element
   width?: number
   radius?: number
   bg?: string
+  size: string
+}
+export type buttonProps = {
+  label: string
+  size: string
+  variant?: string
+  bgColor?: string
+  radius?: number
+  color?: string
+  action?: React.MouseEventHandler<HTMLButtonElement>
 }

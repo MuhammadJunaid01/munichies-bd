@@ -1,8 +1,6 @@
 import Head from 'next/head'
-import HeroBanner from '../component/heroBanner/HeroBanner'
-import Input from '../component/input/Input'
+import HomePage from '../component/home/Home'
 import MainLayoute from '../layoutes/MainLayoute'
-import HeroImage from '../public/hero-image.png'
 export default function Home() {
   return (
     <>
@@ -14,23 +12,7 @@ export default function Home() {
       </Head>
       <main>
         <MainLayoute>
-          <HeroBanner
-            title="Authentic Home food in UK"
-            info="What2Eat is a courier service in which authentic home cook food is delivered to a customer."
-            bgColor="#0C1712"
-            color="#FFFFFF"
-            marginTop={200}
-            img={HeroImage}
-            input={
-              <Input
-                type="text"
-                placeHolder="Search food you love"
-                width={398}
-                radius={10}
-                bg="#FFFFFF"
-              />
-            }
-          />
+          <HomePage />
         </MainLayoute>
       </main>
     </>

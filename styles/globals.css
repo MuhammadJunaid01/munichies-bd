@@ -107,6 +107,7 @@ a {
 } */
 /* @import url(//db.onlinewebfonts.com/c/040a78b437acd0433612f92e61d04a1b?family=Gilroy-Medium) */
 @import url(//db.onlinewebfonts.com/c/040a78b437acd0433612f92e61d04a1b?family=Gilroy-Medium);
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 :root {
   --main-bg-color: #0c1712;
   --main-text-color: #ffffff;
