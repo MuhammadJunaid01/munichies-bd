@@ -44,5 +44,16 @@ export type buttonProps = {
   bgColor?: string
   radius?: number
   color?: string
+  border?: string
+  isGroup?: boolean | false
+  groupData?: Array<string>
+  selectBtn?: number
+  selectBtnStyle?: { backgroundColor: string; color: string }
   action?: React.MouseEventHandler<HTMLButtonElement>
+}
+export type HomeKitchenProps = {
+  title: string
+  button: ReactNode
+  filterOption: ReactNode
+  products: ReactNode
 }
