@@ -111,6 +111,8 @@ a {
 :root {
   --main-bg-color: #0c1712;
   --main-text-color: #ffffff;
+  --bg-secoundary: #f3ba00;
+  --bg-light: #f7f8fa;
 }
 html,
 body {
@@ -119,6 +121,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Gilroy-Medium';
+  /* background-color: var(--main-bg-color); */
 }
 
 h1,

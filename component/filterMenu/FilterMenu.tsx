@@ -30,7 +30,7 @@ const items: MenuItem[] = [
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4']
 const FilterMenu = () => {
-  const [openKeys, setOpenKeys] = useState(['sub1'])
+  const [openKeys, setOpenKeys] = useState(['sub2'])
 
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1)

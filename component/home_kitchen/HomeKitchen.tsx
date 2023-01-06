@@ -5,13 +5,20 @@ const HomeKitchen = (props: HomeKitchenProps) => {
   return (
     <div
       style={{
-        backgroundColor: 'inherit',
+        backgroundColor: 'var(--bg-light)',
         marginTop: '100px',
         padding: '0px 30px',
       }}
     >
       <div className="title">
-        <p style={{ fontSize: '24px', lineHeight: '24px', color: '#000000' }}>
+        <p
+          style={{
+            fontSize: '24px',
+            lineHeight: '24px',
+            color: '#000000',
+            margin: '10px 0px',
+          }}
+        >
           {title}
         </p>
       </div>
