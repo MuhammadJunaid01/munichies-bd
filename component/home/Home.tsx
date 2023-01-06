@@ -1,9 +1,12 @@
 /* eslint-disable no-console */
 import HeroImage from '../../public/hero-image.png'
 import Button from '../button/Button'
+import FilterMenu from '../filterMenu/FilterMenu'
 import HeroBanner from '../heroBanner/HeroBanner'
+import HomeKitchen from '../home_kitchen/HomeKitchen'
 import Input from '../input/Input'
 
+const btnGroup = ['All', 'Button', 'Free delivery', 'New', 'Comming']
 const HomePage = () => {
   const onclick = () => {
     console.log('clicked')
@@ -38,8 +41,37 @@ const HomePage = () => {
           />
         }
       />
+      <HomeKitchen
+        title="Home Kitchen"
+        button={
+          <Button
+            label=""
+            size="lg"
+            groupData={btnGroup}
+            isGroup
+            border="1px solid #F3BA00"
+            color="#929292"
+            selectBtn={0}
+            selectBtnStyle={selectBtnStyle}
+            action={onclick}
+          />
+        }
+        filterOption={<FilterMenu />}
+        products={undefined}
+      />
     </div>
   )
+}
+
+const selectBtnStyle = {
+  backgroundColor: '#F3BA00',
+  color: 'black',
+  border: '1px solid #F3BA00',
+  cursor: 'pointer',
+  padding: '13px 40px',
+  // fontFamily: 'SF Pro Text',
+  borderTopLeftRadius: '5px',
+  borderBottomLeftRadius: '5px',
 }
 
 export default HomePage

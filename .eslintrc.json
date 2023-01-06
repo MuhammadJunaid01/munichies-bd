@@ -9,7 +9,7 @@
   ],
 
   "rules": {
-    "no-console": "error",
+    "no-console": "warn",
     "no-var": "error",
     "prefer-arrow-callback": "error",
     "@typescript-eslint/no-unused-vars": "error",
