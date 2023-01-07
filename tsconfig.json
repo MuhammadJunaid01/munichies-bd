@@ -22,7 +22,7 @@
     "./.eslintrc.json",
     "redux/slices/cartSlice.ts",
     "redux/slices/cartSlice.ts",
-    "redux/slices/cart.js"
+    "redux/slices/cart.ts"
   ],
   "exclude": ["node_modules"]
 }
