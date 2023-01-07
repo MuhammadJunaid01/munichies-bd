@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { FaAlignRight, FaBars } from 'react-icons/fa'
 
 import { useState } from 'react'
-import { NavbarProps } from '../../interfaces'
 import style from '../../styles/menubar.module.css'
+import { NavbarProps } from '../../types'
 const MenuBar = (props: NavbarProps) => {
   const { logo, paths, icons, classNameContent, classNameContainer } = props
   const [isCollapse, setIsCollapse] = useState(false)
@@ -30,10 +30,10 @@ const MenuBar = (props: NavbarProps) => {
           })}
         </div>
         <div className={style.menu_icon}>
-          {icons?.map((icon, index) => {
+          {icons?.map((icon, index, {}) => {
             return (
               <div key={index}>
-                <p>{icon}</p>
+                <p style={index === 1 ? { cursor: 'pointer' } : {}}>{icon}</p>
               </div>
             )
           })}

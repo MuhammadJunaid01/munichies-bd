@@ -1,4 +1,4 @@
-import { buttonProps } from '../../interfaces'
+import { buttonProps } from '../../types'
 
 /* A React component that is written in TypeScript. */
 const Button = (props: buttonProps) => {

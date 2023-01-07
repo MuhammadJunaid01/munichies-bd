@@ -1,4 +1,4 @@
-import { HomeKitchenProps } from '../../interfaces'
+import { HomeKitchenProps } from '../../types'
 
 const HomeKitchen = (props: HomeKitchenProps) => {
   const { title, button, products } = props

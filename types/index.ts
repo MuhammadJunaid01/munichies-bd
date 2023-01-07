@@ -89,3 +89,24 @@ export interface CardProps {
   vat: number
   addons: { name: string; is_default?: boolean; price: number }[]
 }
+
+export interface HandleCartType {
+  id: number
+  name: string
+  price: string
+  quantity_available: string
+  image: string
+  vat: number
+  addons: { name: string; is_default?: boolean; price: number }[]
+}
+export interface CartItemsType {
+  cartItems: {
+    id: number
+    name: string
+    price: string
+    quantity_available: string
+    image: string
+    vat: number
+    addons: { name: string; is_default?: boolean; price: number }[]
+  }[]
+}

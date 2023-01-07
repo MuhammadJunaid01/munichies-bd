@@ -1,5 +1,5 @@
-import { ProductsProps } from '../../interfaces'
 import { useGetAllProductsQuery } from '../../redux/slices/productsSlie'
+import { ProductsProps } from '../../types'
 import Product from '../product/Product'
 
 const Products = (props: ProductsProps) => {

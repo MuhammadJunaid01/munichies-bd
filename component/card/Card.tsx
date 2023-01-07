@@ -1,10 +1,34 @@
 import { PlusOutlined } from '@ant-design/icons'
 import Image from 'next/image'
-import { CardProps } from '../../interfaces'
+import { useDispatch } from 'react-redux'
 import style from '../../styles/card.module.css'
-const Card = (props: CardProps) => {
-  const { image, vat, name } = props
+import { CardProps } from '../../types'
 
+const Card = (props: CardProps) => {
+  const dispatch = useDispatch()
+  const { id, image, vat, name, addons, price } = props
+  const param = {
+    id: id,
+    iamge: image,
+    vat: vat,
+    name: name,
+    addons: addons,
+    price,
+  }
+  const handleAddTocart = (params: {
+    id: number
+    iamge: string
+    vat: number
+    name: string
+    addons: { name: string; is_default?: boolean | undefined; price: number }[]
+    price: string
+  }) => {
+    console.log('ccc', params)
+    // dispatch(addToCart(params))
+  }
+  // useEffect(() => {
+  //   localStorage.setItem('cartItems', JSON.stringify({ name: 'jj' }))
+  // }, [])
   return (
     <div className={style.card}>
       <Image
@@ -21,6 +45,7 @@ const Card = (props: CardProps) => {
       <div style={{ padding: '0px 14px', textAlign: 'end' }}>
         <p>
           <PlusOutlined
+            onClick={() => handleAddTocart(param)}
             style={{
               cursor: 'pointer',
               backgroundColor: 'var(--bg-secoundary)',
