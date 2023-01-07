@@ -12,6 +12,7 @@ export const productsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://munchies-api.up.railway.app',
   }),
+
   tagTypes: ['Products'],
   endpoints: (builder) => ({
     getAllProducts: builder.query({
