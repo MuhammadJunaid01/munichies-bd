@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-type ToggleType = {
-  mode: string
-}
-const initialState: ToggleType = {
+import { Toggle } from './../../interfaces/index'
+
+const initialState: Toggle = {
   mode: 'light',
 }
 
