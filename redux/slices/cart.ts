@@ -51,7 +51,6 @@ export const cartSlice = createSlice({
         //   ...(state.quantity = state.quantity + 1),
         //   ...update,
         // }
-        localStorage.setItem('cartItems', JSON.stringify(state))
         state?.cartItems?.push(update)
       }
       const total = state?.cartItems?.map((item) => {
