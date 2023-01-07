@@ -1,12 +1,13 @@
 import { PlusOutlined } from '@ant-design/icons'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux'
+import { addToCart } from '../../redux/slices/cart'
 import style from '../../styles/card.module.css'
 import { CardProps } from '../../types'
 
 const Card = (props: CardProps) => {
-  const dispatch = useDispatch()
   const { id, image, vat, name, addons, price } = props
+  const dispatch = useDispatch()
   const param = {
     id: id,
     iamge: image,
@@ -15,6 +16,7 @@ const Card = (props: CardProps) => {
     addons: addons,
     price,
   }
+
   const handleAddTocart = (params: {
     id: number
     iamge: string
@@ -23,8 +25,7 @@ const Card = (props: CardProps) => {
     addons: { name: string; is_default?: boolean | undefined; price: number }[]
     price: string
   }) => {
-    console.log('ccc', params)
-    // dispatch(addToCart(params))
+    dispatch(addToCart(params))
   }
   // useEffect(() => {
   //   localStorage.setItem('cartItems', JSON.stringify({ name: 'jj' }))
