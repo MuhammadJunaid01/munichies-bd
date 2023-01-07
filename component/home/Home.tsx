@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import HeroImage from '../../public/hero-image.png'
 import Button from '../button/Button'
+import Cart from '../cart/Cart'
 import FilterMenu from '../filterMenu/FilterMenu'
 import HeroBanner from '../heroBanner/HeroBanner'
 import HomeKitchen from '../home_kitchen/HomeKitchen'
@@ -60,6 +61,7 @@ const HomePage = () => {
         }
         products={<Products filterOption={<FilterMenu />} />}
       />
+      <Cart />
     </div>
   )
 }

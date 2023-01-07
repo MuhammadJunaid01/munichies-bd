@@ -21,7 +21,8 @@
     "**/*.tsx",
     "./.eslintrc.json",
     "redux/slices/cartSlice.ts",
-    "redux/slices/cartSlice.ts"
+    "redux/slices/cartSlice.ts",
+    "redux/slices/cart.ts"
   ],
   "exclude": ["node_modules"]
 }
