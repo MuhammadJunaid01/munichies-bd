@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd'
-import { ProductProps } from '../../interfaces'
 import style from '../../styles/product.module.css'
+import { ProductProps } from '../../types'
 import Card from '../card/Card'
 const Product = (props: ProductProps) => {
   const { data } = props

@@ -1,4 +1,4 @@
-import { InputProps } from '../../interfaces'
+import { InputProps } from '../../types'
 
 const Input = (props: InputProps) => {
   const { placeHolder, type, bg } = props

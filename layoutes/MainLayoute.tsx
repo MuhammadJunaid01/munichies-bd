@@ -2,8 +2,8 @@
 import { FaShoppingBag, FaSistrix } from 'react-icons/fa'
 import Footer from '../component/footer/Footer'
 import MenuBar from '../component/menubar/MenuBar'
-import { MainLayouteType } from '../interfaces'
 import logo from '../public/logo.png'
+import { MainLayouteType } from '../types'
 const paths = [
   { name: 'Home', to: 'home' },
   { name: 'About', to: 'about' },
