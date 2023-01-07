@@ -1,19 +1,18 @@
-import { InputProps } from '../../types'
+import { InputProps } from '../../interfaces'
 
 const Input = (props: InputProps) => {
-  const { placeHolder, bg, type } = props
-
-  // let hello
+  const { placeHolder, type, bg } = props
   return (
     <div>
       <input
         style={{
-          width: '90%',
+          // width: '100%',
           height: '90%',
           backgroundColor: bg,
           border: 'none',
           outline: 'none',
           paddingLeft: '10px',
+          flexBasis: '100%',
         }}
         type={type}
         placeholder={placeHolder}

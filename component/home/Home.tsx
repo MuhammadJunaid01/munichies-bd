@@ -5,6 +5,7 @@ import FilterMenu from '../filterMenu/FilterMenu'
 import HeroBanner from '../heroBanner/HeroBanner'
 import HomeKitchen from '../home_kitchen/HomeKitchen'
 import Input from '../input/Input'
+import Products from '../products/Products'
 
 const btnGroup = ['All', 'Button', 'Free delivery', 'New', 'Comming']
 const HomePage = () => {
@@ -44,6 +45,7 @@ const HomePage = () => {
       <HomeKitchen
         title="Home Kitchen"
         button={
+          /* Passing a button component to the HomeKitchen component. */
           <Button
             label=""
             size="lg"
@@ -56,8 +58,7 @@ const HomePage = () => {
             action={onclick}
           />
         }
-        filterOption={<FilterMenu />}
-        products={undefined}
+        products={<Products filterOption={<FilterMenu />} />}
       />
     </div>
   )
@@ -69,7 +70,6 @@ const selectBtnStyle = {
   border: '1px solid #F3BA00',
   cursor: 'pointer',
   padding: '13px 40px',
-  // fontFamily: 'SF Pro Text',
   borderTopLeftRadius: '5px',
   borderBottomLeftRadius: '5px',
 }

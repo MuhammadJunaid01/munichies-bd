@@ -1,7 +1,7 @@
-import { HomeKitchenProps } from '../../types'
+import { HomeKitchenProps } from '../../interfaces'
 
 const HomeKitchen = (props: HomeKitchenProps) => {
-  const { title, filterOption, button } = props
+  const { title, button, products } = props
   return (
     <div
       style={{
@@ -23,7 +23,7 @@ const HomeKitchen = (props: HomeKitchenProps) => {
         </p>
       </div>
       <div>{button}</div>
-      <div>{filterOption}</div>
+      {products}
     </div>
   )
 }

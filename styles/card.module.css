@@ -1,0 +1,15 @@
+.card {
+  width: 277px;
+  height: 340px;
+  overflow: hidden;
+  position: relative;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 14px;
+  font-family: 'SF Pro Text';
+  font-weight: 400;
+  margin-top: 10px;
+  color: var(--color-text);
+}

@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd'
 import Image from 'next/image'
-import { HeroBannerProps } from '../../types'
+import { HeroBannerProps } from '../../interfaces'
 
 const HeroBanner = (props: HeroBannerProps) => {
   const { title, info, input, img, bgColor, color, marginTop, button } = props

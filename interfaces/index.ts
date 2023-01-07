@@ -1,7 +1,7 @@
 import { StaticImageData } from 'next/image'
 import React, { ReactNode } from 'react'
 
-export type NavbarProps = {
+export interface NavbarProps {
   paths: { name: string; to: string }[]
   logo?: StaticImageData | string
   icons?: Array<JSX.Element>
@@ -12,13 +12,13 @@ export type NavbarProps = {
   action?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export type MainLayouteType = {
+export interface MainLayouteType {
   children: ReactNode
 }
 // export type HomeProps = {
 //   children: ReactNode
 // }
-export type HeroBannerProps = {
+export interface HeroBannerProps {
   title: string
   info: string
   img: StaticImageData | string
@@ -29,7 +29,7 @@ export type HeroBannerProps = {
   button?: JSX.Element
 }
 
-export type InputProps = {
+export interface InputProps {
   type: string
   placeHolder?: string
   width?: number
@@ -37,7 +37,7 @@ export type InputProps = {
   bg?: string
   size: string
 }
-export type buttonProps = {
+export interface buttonProps {
   label: string
   size: string
   variant?: string
@@ -51,9 +51,41 @@ export type buttonProps = {
   selectBtnStyle?: { backgroundColor: string; color: string }
   action?: React.MouseEventHandler<HTMLButtonElement>
 }
-export type HomeKitchenProps = {
+export interface HomeKitchenProps {
   title: string
   button: ReactNode
-  filterOption: ReactNode
+
   products: ReactNode
+}
+export interface ProductsProps {
+  filterOption: ReactNode
+}
+export interface ProductsType {
+  id: number
+  name: string
+  price: string
+  quantity_available: string
+  image: string
+  vat: number
+  addons: { name: string; is_default?: boolean; price: number }[]
+}
+export interface ProductProps {
+  data: Array<ProductsType>
+}
+export interface Toggle {
+  mode: string
+}
+export interface Product {
+  data: ProductsType[]
+  error: null
+  isLoading: boolean
+}
+export interface CardProps {
+  id: number
+  name: string
+  price: string
+  quantity_available: string
+  image: string
+  vat: number
+  addons: { name: string; is_default?: boolean; price: number }[]
 }
