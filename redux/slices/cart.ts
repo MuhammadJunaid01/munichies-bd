@@ -1,24 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice } from '@reduxjs/toolkit'
-interface state {
-  cartItems: {
-    id: number
-    name: string
-    price: number
-    quantity_available: string
-    image: string
-    vat: number
-    addons: { name: string; is_default?: boolean; price: number }[]
-    quantity: number
-    totalAmount: number
-  }[]
-  quantity: number
-  totalAmount: number
-}
-const initialState: state = {
+import { CartstateType } from '../../types'
+
+const initialState: CartstateType = {
   cartItems: [],
   quantity: 0,
   totalAmount: 0,
+  isCartShow: false,
 }
 export const cartSlice = createSlice({
   name: 'cart',
@@ -47,34 +34,36 @@ export const cartSlice = createSlice({
           ...action.payload,
           quantity: 1,
         }
-        // const updatedState = {
-        //   ...(state.quantity = state.quantity + 1),
-        //   ...update,
-        // }
+
         state?.cartItems?.push(update)
       }
       const total = state?.cartItems?.map((item) => {
         return item.quantity * item.price
       })
-      state.totalAmount = total.reduce((acc, prev) => {
+      const totalAmount = total.reduce((acc, prev) => {
         return acc + prev
       })
-    },
-    inceaseById: (state, action) => {
-      state.cartItems = state?.cartItems?.map((item) => {
-        if (action.payload === item.id) {
-          state.quantity = state.quantity + 1
-          const update = {
-            ...item,
-            quantity: item.quantity + 1,
-          }
-          localStorage.setItem('cartItems', JSON.stringify(state))
-          return update
-        } else {
-          return item
-        }
+      state.totalAmount = totalAmount
+      state.cartItems.map((item) => {
+        const p = item.price * item.quantity
+        item.totalAmount = p
       })
     },
+    // inceaseById: (state, action) => {
+    //   state.cartItems = state?.cartItems?.map((item) => {
+    //     if (action.payload === item.id) {
+    //       state.quantity = state.quantity + 1
+    //       const update = {
+    //         ...item,
+    //         quantity: item.quantity + 1,
+    //       }
+    //       localStorage.setItem('cartItems', JSON.stringify(state))
+    //       return update
+    //     } else {
+    //       return item
+    //     }
+    //   })
+    // },
     // decreseById: (state, action) => {
     //   const currentState = current(state)
     //   state.cartItems = state.cartItems.map((item) => {
@@ -135,7 +124,10 @@ export const cartSlice = createSlice({
     //   })
     //   // console.log("find items", find);
     // },
+    cartShow: (state) => {
+      state.isCartShow = !state.isCartShow
+    },
   },
 })
-export const { addToCart } = cartSlice.actions
+export const { addToCart, cartShow } = cartSlice.actions
 export default cartSlice.reducer

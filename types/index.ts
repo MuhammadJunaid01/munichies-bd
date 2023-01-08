@@ -90,23 +90,22 @@ export interface CardProps {
   addons: { name: string; is_default?: boolean; price: number }[]
 }
 
-export interface HandleCartType {
-  id: number
-  name: string
-  price: string
-  quantity_available: string
-  image: string
-  vat: number
-  addons: { name: string; is_default?: boolean; price: number }[]
-}
-export interface CartItemsType {
+export interface CartstateType {
   cartItems: {
     id: number
     name: string
-    price: string
+    price: number
     quantity_available: string
     image: string
     vat: number
     addons: { name: string; is_default?: boolean; price: number }[]
+    quantity: number
+    totalAmount: number
   }[]
+  quantity: number
+  totalAmount: number
+  isCartShow: boolean
+}
+export interface CartProps {
+  items: CardProps[]
 }

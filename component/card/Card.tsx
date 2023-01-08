@@ -8,7 +8,7 @@ import { CardProps } from '../../types'
 const Card = (props: CardProps) => {
   const { id, image, vat, name, addons, price } = props
   const dispatch = useDispatch()
-  const param = {
+  const product = {
     id: id,
     iamge: image,
     vat: vat,
@@ -27,9 +27,7 @@ const Card = (props: CardProps) => {
   }) => {
     dispatch(addToCart(params))
   }
-  // useEffect(() => {
-  //   localStorage.setItem('cartItems', JSON.stringify({ name: 'jj' }))
-  // }, [])
+
   return (
     <div className={style.card}>
       <Image
@@ -46,7 +44,7 @@ const Card = (props: CardProps) => {
       <div style={{ padding: '0px 14px', textAlign: 'end' }}>
         <p>
           <PlusOutlined
-            onClick={() => handleAddTocart(param)}
+            onClick={() => handleAddTocart(product)}
             style={{
               cursor: 'pointer',
               backgroundColor: 'var(--bg-secoundary)',
