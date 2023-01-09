@@ -11,12 +11,13 @@ const Button = (props: buttonProps) => {
     border,
     selectBtn,
     selectBtnStyle,
+    classname,
     action,
   } = props
   return (
-    <div>
+    <div style={classname ? { textAlign: 'center' } : {}}>
       {isGroup ? (
-        <div>
+        <div style={{ padding: '20px 100px' }}>
           {groupData?.map((data, key, { length }) => {
             return (
               <button
@@ -50,14 +51,19 @@ const Button = (props: buttonProps) => {
         </div>
       ) : (
         <button
+          className={classname}
           onClick={action}
-          style={{
-            backgroundColor: bgColor,
-            color: color,
-            cursor: 'pointer',
-            border: 'none',
-            height: '100%',
-          }}
+          style={
+            classname
+              ? {}
+              : {
+                  backgroundColor: bgColor,
+                  color: color,
+                  cursor: 'pointer',
+                  border: 'none',
+                  height: '100%',
+                }
+          }
         >
           {label}
         </button>

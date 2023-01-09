@@ -146,17 +146,11 @@ li {
   background-color: #f7f8fa;
   color: #000000;
 }
-/* @font-face {
-  font-family: "Gilroy-Medium";
-  src: url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.eot");
-  src: url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.eot?#iefix")
-      format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.woff2")
-      format("woff2"),
-    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.woff")
-      format("woff"),
-    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.ttf")
-      format("truetype"),
-    url("//db.onlinewebfonts.com/t/040a78b437acd0433612f92e61d04a1b.svg#Gilroy-Medium")
-      format("svg");
-} */
+.btn-style {
+  padding: 8px 17px;
+  border: 1px solid var(--bg-secoundary);
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--color-text);
+}

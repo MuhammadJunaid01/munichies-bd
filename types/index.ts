@@ -39,7 +39,7 @@ export interface InputProps {
 }
 export interface buttonProps {
   label: string
-  size: string
+  size?: string
   variant?: string
   bgColor?: string
   radius?: number
@@ -50,6 +50,7 @@ export interface buttonProps {
   selectBtn?: number
   selectBtnStyle?: { backgroundColor: string; color: string }
   action?: React.MouseEventHandler<HTMLButtonElement>
+  classname?: string
 }
 export interface HomeKitchenProps {
   title: string
@@ -80,6 +81,14 @@ export interface Product {
   error: null
   isLoading: boolean
 }
+export interface BlogProps {
+  title: string
+  data: {
+    blog_title: string
+    blog_info: string
+    blog_image: string
+  }[]
+}
 export interface CardProps {
   id: number
   name: string
@@ -88,6 +97,8 @@ export interface CardProps {
   image: string
   vat: number
   addons: { name: string; is_default?: boolean; price: number }[]
+  starIcon?: JSX.Element
+  min?: string
 }
 
 export interface CartstateType {

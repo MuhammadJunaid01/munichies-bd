@@ -1,8 +1,11 @@
 .card {
   width: 277px;
-  height: 340px;
+  /* height: 280px; */
+  height: fit-content;
   overflow: hidden;
   position: relative;
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
 }
 .content {
   display: flex;
@@ -12,4 +15,10 @@
   font-weight: 400;
   margin-top: 10px;
   color: var(--color-text);
+}
+.vat {
+  position: absolute;
+  top: 0px;
+  background-color: var(--bg-secoundary);
+  padding: 4px;
 }

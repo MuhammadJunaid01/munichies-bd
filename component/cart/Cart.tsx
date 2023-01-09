@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
   LoadingOutlined,
   SmileOutlined,
@@ -5,23 +6,22 @@ import {
   UserOutlined,
 } from '@ant-design/icons'
 import { Steps, Table } from 'antd'
+import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { RootStore } from '../../redux/app'
 const columns = [
   {
     title: 'Product',
-    dataIndex: 'image',
+    dataIndex: 'price',
     key: '0',
-    render: (
-      text: unknown,
-      record: { iamge: string | undefined; image: string | undefined }
-    ) => {
+    render: (_record: { iamge: string }) => {
       return (
         <div>
-          <img
-            style={{ width: '100px' }}
-            src={record.iamge}
-            alt={record.image}
+          <Image
+            src={_record?.iamge}
+            alt="Picture of the author"
+            width={500}
+            height={500}
           />
         </div>
       )
@@ -30,15 +30,12 @@ const columns = [
 
   {
     title: 'QUANTITY',
-    dataIndex: 'address',
+    dataIndex: 'quantity',
     key: '1',
-    render: (
-      text: never,
-      _record: { quantity: string | number | readonly string[] | undefined }
-    ) => {
+    render: (_record: { quantity: number }) => {
       return (
         <div>
-          <input type="number" defaultValue={_record.quantity} />
+          <input type="number" defaultValue={_record?.quantity} />
         </div>
       )
     },
@@ -60,30 +57,39 @@ const Cart = () => {
   console.log(cartItems)
   return (
     <div>
-      <Steps
-        items={[
-          {
-            title: 'Login',
-            status: 'finish',
-            icon: <UserOutlined />,
-          },
-          {
-            title: 'Verification',
-            status: 'finish',
-            icon: <SolutionOutlined />,
-          },
-          {
-            title: 'Pay',
-            status: 'process',
-            icon: <LoadingOutlined />,
-          },
-          {
-            title: 'Done',
-            status: 'wait',
-            icon: <SmileOutlined />,
-          },
-        ]}
-      />
+      <div
+        style={{
+          width: '70%',
+          margin: '0 auto',
+          marginTop: '30px',
+          marginBottom: '30px',
+        }}
+      >
+        <Steps
+          items={[
+            {
+              title: 'Login',
+              status: 'error',
+              icon: <UserOutlined />,
+            },
+            {
+              title: 'Verification',
+              status: 'finish',
+              icon: <SolutionOutlined />,
+            },
+            {
+              title: 'Pay',
+              status: 'process',
+              icon: <LoadingOutlined />,
+            },
+            {
+              title: 'Done',
+              status: 'process',
+              icon: <SmileOutlined />,
+            },
+          ]}
+        />
+      </div>
       <Table columns={columns} dataSource={cartItems} bordered />
     </div>
   )

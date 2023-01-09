@@ -6,13 +6,13 @@ const Input = (props: InputProps) => {
     <div>
       <input
         style={{
-          // width: '100%',
-          height: '90%',
+          width: '100%',
+          height: '100%',
           backgroundColor: bg,
           border: 'none',
           outline: 'none',
+          padding: '12px 0px',
           paddingLeft: '10px',
-          flexBasis: '100%',
         }}
         type={type}
         placeholder={placeHolder}

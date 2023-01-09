@@ -13,40 +13,13 @@ const HeroBanner = (props: HeroBannerProps) => {
         // padding: '0px 10px',
       }}
     >
-      <div style={{ marginTop: `${marginTop}px` }}>
+      <div style={{ marginTop: `${marginTop}px`, width: '100%' }}>
         <Row justify="center" gutter={[16, 16]}>
           <Col sm={24} md={10}>
-            <p
-              style={{
-                fontSize: '70px',
-                lineHeight: '82px',
-                fontFamily: 'inherit',
-                marginTop: '30px',
-              }}
-            >
-              {title}
-            </p>
-            <p
-              style={{
-                fontFamily: 'inherit',
-                fontWeight: 400,
-                margin: '17px 0px',
-              }}
-            >
-              {info}
-            </p>
-            <div
-              style={{
-                display: 'flex',
-                backgroundColor: 'white',
-                justifyContent: 'space-between',
-                width: '70%',
-                height: '38px',
-                borderRadius: '10px',
-                overflow: 'hidden',
-              }}
-            >
-              {input}
+            <p style={style.title}>{title}</p>
+            <p style={style.info}>{info}</p>
+            <div style={style.searchBox}>
+              <div style={{ width: '80%', height: '38px' }}>{input}</div>
               {button}
             </div>
           </Col>
@@ -58,5 +31,26 @@ const HeroBanner = (props: HeroBannerProps) => {
     </div>
   )
 }
-
+const style = {
+  title: {
+    fontSize: '70px',
+    lineHeight: '82px',
+    fontFamily: 'inherit',
+    marginTop: '30px',
+  },
+  info: {
+    fontFamily: 'inherit',
+    fontWeight: 400,
+    margin: '17px 0px',
+  },
+  searchBox: {
+    display: 'flex',
+    backgroundColor: 'white',
+    justifyContent: 'space-between',
+    width: '70%',
+    height: '38px',
+    borderRadius: '10px',
+    overflow: 'hidden',
+  },
+}
 export default HeroBanner
