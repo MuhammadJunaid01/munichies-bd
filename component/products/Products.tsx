@@ -8,7 +8,7 @@ const Products = (props: ProductsProps) => {
 
   return (
     <div>
-      <div>{filterOption}</div>
+      <div style={{ padding: '20px 100px' }}>{filterOption}</div>
       <div>
         <Product data={data} />
       </div>

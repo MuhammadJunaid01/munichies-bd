@@ -1,17 +1,45 @@
 import Image from 'next/image'
-import { FaAlignRight, FaBars } from 'react-icons/fa'
-
+import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { FaAlignRight, FaBars } from 'react-icons/fa'
 import style from '../../styles/menubar.module.css'
 import { NavbarProps } from '../../types'
 const MenuBar = (props: NavbarProps) => {
-  const { logo, paths, icons, classNameContent, classNameContainer } = props
+  const router = useRouter()
+
+  const {
+    logo,
+    paths,
+    icons,
+    classNameContent,
+    classNameContainer,
+    bgColor,
+    isFooter,
+  } = props
+
   const [isCollapse, setIsCollapse] = useState(false)
 
+  const handleLink = () => {
+    router.push('/cart')
+  }
   return (
-    <div className={classNameContainer ? classNameContainer : style.container}>
+    <div
+      style={
+        isFooter || bgColor
+          ? { backgroundColor: bgColor, padding: '24px 100px' }
+          : { backgroundColor: 'var(--main-bg-color)' }
+      }
+      className={classNameContainer ? classNameContainer : style.container}
+    >
       <div className={classNameContent ? classNameContent : style.menu}>
-        <Image src={logo ? logo : ''} width={128} height={65} alt="" />
+        <Image
+          onClick={() => router.push('/')}
+          src={logo ? logo : ''}
+          width={isFooter ? 118 : 128}
+          height={isFooter ? 20 : 65}
+          alt="logo"
+          style={{ cursor: 'pointer' }}
+        />
         <div
           className={`${
             isCollapse
@@ -33,7 +61,12 @@ const MenuBar = (props: NavbarProps) => {
           {icons?.map((icon, index, {}) => {
             return (
               <div key={index}>
-                <p style={index === 1 ? { cursor: 'pointer' } : {}}>{icon}</p>
+                <p
+                  onClick={isFooter ? undefined : handleLink}
+                  style={index === 1 ? { cursor: 'pointer' } : {}}
+                >
+                  {icon}
+                </p>
               </div>
             )
           })}

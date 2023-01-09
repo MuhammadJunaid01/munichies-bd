@@ -1,0 +1,8 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.index_4 {
+  /* justify-content: flex-end; */
+  width: 20px;
+}

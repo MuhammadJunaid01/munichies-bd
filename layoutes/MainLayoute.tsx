@@ -4,7 +4,7 @@ import Footer from '../component/footer/Footer'
 import MenuBar from '../component/menubar/MenuBar'
 import logo from '../public/logo.png'
 import { MainLayouteType } from '../types'
-const paths = [
+export const paths = [
   { name: 'Home', to: 'home' },
   { name: 'About', to: 'about' },
   { name: 'Menu', to: 'menu' },
@@ -17,7 +17,7 @@ const MainLayoute = ({ children }: MainLayouteType) => {
       <MenuBar
         logo={logo}
         paths={paths}
-        isFooter
+        isFooter={false}
         icons={[<FaSistrix />, <FaShoppingBag />]}
       />
       {children}
