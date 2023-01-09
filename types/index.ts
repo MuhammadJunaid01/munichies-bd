@@ -103,8 +103,9 @@ export interface CardProps {
 
 export interface CartstateType {
   cartItems: {
+    key?: string
     id: number
-    name: string
+    name?: string
     price: number
     quantity_available: string
     image: string
