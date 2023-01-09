@@ -77,7 +77,7 @@ const Cart = () => {
 
     setData(copyData)
   }, [cartItems])
-  console.log(data)
+
   return (
     <div>
       <div style={style.step}>
