@@ -16,18 +16,18 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootStore } from '../../redux/app'
 interface DataTypes {
-  image: string
   quantity: number
   price: number
   totalAmount: number
   key: string
+  iamge: string
 }
 
 const columns: ColumnsType<DataTypes> = [
   {
     title: 'Product',
     dataIndex: 'iamge',
-    render: (iamge: string) => (
+    render: (iamge) => (
       <img
         style={{ width: '50px', height: '50px', borderRadius: '50%' }}
         src={iamge}
@@ -71,12 +71,13 @@ const Cart = () => {
     cartItems.map((item, index) => {
       const shaloCopy = Object.assign({}, item)
       shaloCopy.key = index.toString()
-      const { image, quantity, price, totalAmount, key } = shaloCopy
-      copyData.push({ image, quantity, price, totalAmount, key })
+      const { iamge, quantity, price, totalAmount, key } = shaloCopy
+      copyData.push({ iamge, quantity, price, totalAmount, key })
     })
+
     setData(copyData)
   }, [cartItems])
-
+  console.log(data)
   return (
     <div>
       <div style={style.step}>

@@ -108,7 +108,7 @@ export interface CartstateType {
     name?: string
     price: number
     quantity_available: string
-    image: string
+    iamge: string
     vat: number
     addons: { name: string; is_default?: boolean; price: number }[]
     quantity: number
