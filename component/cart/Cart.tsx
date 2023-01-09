@@ -1,70 +1,86 @@
 /* eslint-disable @next/next/no-img-element */
+/* eslint no-use-before-define: 0 */ // --> OFF
 import {
   LoadingOutlined,
+  MinusOutlined,
+  PlusOutlined,
   SmileOutlined,
   SolutionOutlined,
   UserOutlined,
 } from '@ant-design/icons'
-import { Steps, Table } from 'antd'
-import Image from 'next/image'
+import { Divider, Steps, Table } from 'antd'
+import type { ColumnsType } from 'antd/es/table'
+import { useEffect, useState } from 'react'
+
+// import Image, { StaticImageData } from 'next/image'
 import { useSelector } from 'react-redux'
 import { RootStore } from '../../redux/app'
-const columns = [
+interface DataTypes {
+  quantity: number
+  price: number
+  totalAmount: number
+  key: string
+  iamge: string
+}
+
+const columns: ColumnsType<DataTypes> = [
   {
     title: 'Product',
-    dataIndex: 'price',
-    key: '0',
-    render: (_record: { iamge: string }) => {
-      return (
-        <div>
-          <Image
-            src={_record?.iamge}
-            alt="Picture of the author"
-            width={500}
-            height={500}
-          />
-        </div>
-      )
-    },
+    dataIndex: 'iamge',
+    render: (iamge) => (
+      <img
+        style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+        src={iamge}
+        alt="product image"
+      />
+    ),
   },
-
   {
-    title: 'QUANTITY',
+    title: 'Price',
+    dataIndex: 'price',
+  },
+  {
+    title: 'Quantity',
     dataIndex: 'quantity',
-    key: '1',
-    render: (_record: { quantity: number }) => {
+    render(value, record, index) {
       return (
-        <div>
-          <input type="number" defaultValue={_record?.quantity} />
+        <div style={style.quantity} key={index}>
+          <p>
+            <PlusOutlined />
+          </p>
+          <p style={{ cursor: 'pointer' }}>{value}</p>
+          <p style={{ cursor: 'pointer' }}>
+            <MinusOutlined />
+          </p>
         </div>
       )
     },
   },
   {
-    title: 'PRICE',
-    dataIndex: 'price',
-    key: '2',
-  },
-  {
-    title: 'TOTAL',
+    title: 'Total',
     dataIndex: 'totalAmount',
-    key: '3',
   },
 ]
 
 const Cart = () => {
   const { cartItems } = useSelector((state: RootStore) => state.cart)
-  console.log(cartItems)
+  const [data, setData] = useState<DataTypes[]>()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  useEffect(() => {
+    const copyData: DataTypes[] = []
+    cartItems.map((item, index) => {
+      const shaloCopy = Object.assign({}, item)
+      shaloCopy.key = index.toString()
+      const { iamge, quantity, price, totalAmount, key } = shaloCopy
+      copyData.push({ iamge, quantity, price, totalAmount, key })
+    })
+
+    setData(copyData)
+  }, [cartItems])
+
   return (
     <div>
-      <div
-        style={{
-          width: '70%',
-          margin: '0 auto',
-          marginTop: '30px',
-          marginBottom: '30px',
-        }}
-      >
+      <div style={style.step}>
         <Steps
           items={[
             {
@@ -90,9 +106,25 @@ const Cart = () => {
           ]}
         />
       </div>
-      <Table columns={columns} dataSource={cartItems} bordered />
+      <div>
+        <Divider />
+
+        <Table rowSelection={{}} columns={columns} dataSource={data} />
+      </div>
     </div>
   )
 }
-
+const style = {
+  step: {
+    width: '70%',
+    margin: '0 auto',
+    marginTop: '30px',
+    marginBottom: '30px',
+  },
+  quantity: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '100px',
+  },
+}
 export default Cart

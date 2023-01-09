@@ -103,11 +103,12 @@ export interface CardProps {
 
 export interface CartstateType {
   cartItems: {
+    key?: string
     id: number
-    name: string
+    name?: string
     price: number
     quantity_available: string
-    image: string
+    iamge: string
     vat: number
     addons: { name: string; is_default?: boolean; price: number }[]
     quantity: number

@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { Col, Row } from 'antd'
 import { BlogProps } from '../../types'
 const Blog = (props: BlogProps) => {
   const { title, data } = props
@@ -15,17 +14,14 @@ const Blog = (props: BlogProps) => {
       >
         {title}
       </h1>
-      <Row>
-        {data.map((blog, index) => {
-          return (
-            <Col key={index} sm={24} md={12} lg={8}>
-              <div>
-                <img src={blog.blog_image} alt="" />
-              </div>
-            </Col>
-          )
-        })}
-      </Row>
+      {data.map((blog, index) => {
+        return (
+          // eslint-disable-next-line react/jsx-key
+          <div key={index}>
+            <img src={blog.blog_image} alt="" />
+          </div>
+        )
+      })}
     </div>
   )
 }
