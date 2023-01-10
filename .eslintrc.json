@@ -1,4 +1,13 @@
 {
+  "root": true,
+  "globals": {
+    "React": "readonly"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
