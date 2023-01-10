@@ -98,7 +98,6 @@ const HomePage = () => {
         }
         products={<Products filterOption={<FilterMenu />} />}
       />
-
       <Blog title="Our Blog" data={blogData} />
       <AskQues />
     </div>

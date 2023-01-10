@@ -16,12 +16,25 @@ const Blog = (props: BlogProps) => {
       >
         {title}
       </h1>
-      <div className={style.content}>
+      <div style={{ marginBottom: 100 }} className={style.content}>
         {data.map((blog, index) => {
           return (
             // eslint-disable-next-line react/jsx-key
-            <div className={index === 4 ? style.index_4 : ""} key={index}>
-              <img src={blog.blog_image} alt="" />
+            <div className={"contentItem" + (index + 1)} key={index}>
+              <img
+                style={{
+                  width: "100%",
+                  height: "66%",
+                  objectFit: "cover",
+                  borderRadius: "0.8rem",
+                }}
+                src={blog.blog_image}
+                alt=""
+              />
+              <p style={{ color: "#474747", fontSize: 18 }}>
+                {blog.blog_title}
+              </p>
+              <p style={{ color: "gray", fontSize: 16 }}>{blog.blog_info}</p>
             </div>
           );
         })}
