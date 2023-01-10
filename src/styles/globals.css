@@ -107,7 +107,7 @@ a {
 } */
 /* @import url(//db.onlinewebfonts.com/c/040a78b437acd0433612f92e61d04a1b?family=Gilroy-Medium) */
 @import url(//db.onlinewebfonts.com/c/040a78b437acd0433612f92e61d04a1b?family=Gilroy-Medium);
-@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 :root {
   --main-bg-color: #0c1712;
   --main-text-color: #ffffff;
@@ -121,7 +121,7 @@ body {
   overflow-x: hidden;
   padding: 0;
   margin: 0;
-  font-family: 'Gilroy-Medium';
+  font-family: "Gilroy-Medium";
   /* background-color: var(--main-bg-color); */
 }
 
@@ -153,4 +153,12 @@ li {
   text-align: center;
   cursor: pointer;
   color: var(--color-text);
+}
+.container {
+  padding: 0px 100px;
+}
+@media (max-width: 748px) {
+  .container {
+    padding: 0;
+  }
 }

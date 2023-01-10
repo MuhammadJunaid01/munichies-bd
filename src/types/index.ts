@@ -117,6 +117,7 @@ export interface CartstateType {
   quantity: number;
   totalAmount: number;
   isCartShow: boolean;
+  isCartAdd: boolean;
 }
 export interface CartProps {
   items: CardProps[];

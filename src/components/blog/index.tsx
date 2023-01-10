@@ -5,7 +5,7 @@ import { BlogProps } from "types";
 const Blog = (props: BlogProps) => {
   const { title, data } = props;
   return (
-    <div style={{ backgroundColor: "#FFFFFF", padding: "0px 100px" }}>
+    <div className="container" style={{ backgroundColor: "#FFFFFF" }}>
       <h1
         style={{
           paddingTop: "60px",

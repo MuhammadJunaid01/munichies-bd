@@ -6,7 +6,17 @@ import style from "styles/card.module.css";
 import { CardProps } from "types";
 
 const Card = (props: CardProps) => {
-  const { id, image, vat, name, addons, price, starIcon, min } = props;
+  const {
+    id,
+    image,
+    vat,
+    name,
+    addons,
+    price,
+    starIcon,
+    min,
+    quantity_available,
+  } = props;
   const dispatch = useDispatch();
   const product = {
     id: id,
@@ -15,6 +25,7 @@ const Card = (props: CardProps) => {
     name: name,
     addons: addons,
     price,
+    quantity_available: quantity_available,
   };
 
   const handleAddTocart = (params: {
