@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import HomePage from '../component/home/Home'
 import MainLayoute from '../layoutes/MainLayoute'
 export default function Home() {
@@ -11,6 +13,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
         <MainLayoute>
           <HomePage />
         </MainLayoute>

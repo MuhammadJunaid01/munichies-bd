@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint no-use-before-define: 0 */ // --> OFF
+
 import {
   LoadingOutlined,
   MinusOutlined,
@@ -8,20 +8,14 @@ import {
   SolutionOutlined,
   UserOutlined,
 } from '@ant-design/icons'
-import { Divider, Steps, Table } from 'antd'
+import { Col, Divider, Row, Steps, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { useEffect, useState } from 'react'
 
-// import Image, { StaticImageData } from 'next/image'
 import { useSelector } from 'react-redux'
 import { RootStore } from '../../redux/app'
-interface DataTypes {
-  quantity: number
-  price: number
-  totalAmount: number
-  key: string
-  iamge: string
-}
+import { useCreateOrderMutation } from '../../redux/slices/productsSlie'
+import { DataTypes } from '../../types'
 
 const columns: ColumnsType<DataTypes> = [
   {
@@ -45,7 +39,7 @@ const columns: ColumnsType<DataTypes> = [
     render(value, record, index) {
       return (
         <div style={style.quantity} key={index}>
-          <p>
+          <p style={{ cursor: 'pointer' }}>
             <PlusOutlined />
           </p>
           <p style={{ cursor: 'pointer' }}>{value}</p>
@@ -63,20 +57,46 @@ const columns: ColumnsType<DataTypes> = [
 ]
 
 const Cart = () => {
-  const { cartItems } = useSelector((state: RootStore) => state.cart)
+  const [createOrder] = useCreateOrderMutation()
+  const { cartItems, totalAmount: cartToatl } = useSelector(
+    (state: RootStore) => state.cart
+  )
   const [data, setData] = useState<DataTypes[]>()
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [totalvat, setTotalVat] = useState(0)
+  const orderDetails = {
+    customer: {
+      name: 'muhammad junaid',
+      address: 'chittagong',
+      phone: '01634900664',
+    },
+    calculation: {
+      price: cartToatl,
+      vat: totalvat,
+      total: cartToatl + totalvat,
+    },
+    items: cartItems,
+  }
   useEffect(() => {
+    let countVat = 0
     const copyData: DataTypes[] = []
     cartItems.map((item, index) => {
       const shaloCopy = Object.assign({}, item)
       shaloCopy.key = index.toString()
       const { iamge, quantity, price, totalAmount, key } = shaloCopy
       copyData.push({ iamge, quantity, price, totalAmount, key })
+      countVat += item.vat
     })
-
+    setTotalVat(countVat)
     setData(copyData)
   }, [cartItems])
+
+  const handleOrder = async () => {
+    await createOrder(orderDetails)
+      .unwrap()
+      .then((response) => {
+        console.log('response', response)
+      })
+  }
 
   return (
     <div>
@@ -90,7 +110,7 @@ const Cart = () => {
             },
             {
               title: 'Verification',
-              status: 'finish',
+              status: 'error',
               icon: <SolutionOutlined />,
             },
             {
@@ -100,7 +120,7 @@ const Cart = () => {
             },
             {
               title: 'Done',
-              status: 'process',
+              status: 'wait',
               icon: <SmileOutlined />,
             },
           ]}
@@ -108,8 +128,50 @@ const Cart = () => {
       </div>
       <div>
         <Divider />
-
-        <Table rowSelection={{}} columns={columns} dataSource={data} />
+        <Row gutter={[16, 16]}>
+          <Col sm={24} md={8} lg={15}>
+            <Table rowSelection={{}} columns={columns} dataSource={data} />
+          </Col>
+          <Col sm={24} md={3} lg={2}></Col>
+          <Col sm={24} md={8} lg={7}>
+            <div>
+              <div>
+                <h2 style={{ textAlign: 'center', margin: '10px 0px' }}>
+                  CART TOTAL
+                </h2>
+                <div
+                  style={{ display: 'flex', justifyContent: 'space-around' }}
+                >
+                  <h2>Total </h2>
+                  <h2>${cartToatl} </h2>
+                </div>
+              </div>
+              <div
+                style={{
+                  width: '90%',
+                  backgroundColor: '#1AC073',
+                  margin: '0 auto',
+                  padding: '8px 0px',
+                  marginTop: '40px',
+                  borderRadius: '5px',
+                }}
+              >
+                <button
+                  onClick={handleOrder}
+                  style={{
+                    width: '100%',
+                    border: 'none',
+                    backgroundColor: 'inherit',
+                    color: 'white',
+                    cursor: 'pointer',
+                  }}
+                >
+                  PROCEED TO CHECKOUT
+                </button>
+              </div>
+            </div>
+          </Col>
+        </Row>
       </div>
     </div>
   )

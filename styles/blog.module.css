@@ -1,8 +1,10 @@
 .content {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  /* grid-template-rows: 1fr 10fr 1fr; */
+  gap: 0.5rem;
 }
 .index_4 {
-  /* justify-content: flex-end; */
-  width: 20px;
+  justify-content: end;
+  background-color: red;
 }

@@ -121,3 +121,23 @@ export interface CartstateType {
 export interface CartProps {
   items: CardProps[]
 }
+export interface DataTypes {
+  quantity: number
+  price: number
+  totalAmount: number
+  key: string
+  iamge: string
+}
+
+// export interface OrderTypes {
+//   customer: { name: string; address: string; phone: string }
+//   calculation: { price: number; vat: number; totalAmount: number }
+//   items: {
+//     id: number
+//     name: string
+//     price: number
+//     quantity: number
+//     vat: number
+//     addon: { name: string; price: number }
+//   }[]
+// }

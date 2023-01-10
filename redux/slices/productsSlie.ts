@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// import { Product } from './../../interfaces/index'
-// const initialState: Product = {
-//   data: [],
-//   error: null,
-//   isLoading: false,
-// }
 
 export const productsApi = createApi({
   reducerPath: 'productsAPi',
@@ -13,11 +7,22 @@ export const productsApi = createApi({
     baseUrl: 'https://munchies-api.up.railway.app',
   }),
 
-  tagTypes: ['Products'],
+  tagTypes: ['Products', 'order'],
   endpoints: (builder) => ({
     getAllProducts: builder.query({
       query: () => '/products',
+      providesTags: ['Products'],
+    }),
+    createOrder: builder.mutation({
+      query: (data) => {
+        return {
+          url: '/order',
+          body: data,
+          method: 'POST',
+          headers: { x_access_user: 'hire.developerjunaid@gmail.com' },
+        }
+      },
     }),
   }),
 })
-export const { useGetAllProductsQuery } = productsApi
+export const { useGetAllProductsQuery, useCreateOrderMutation } = productsApi
